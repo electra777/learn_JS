@@ -18,10 +18,8 @@ function getCoupeNumber(seat) {
 		return 'Ошибка. Проверьте правильность введенного номера места';
 	} else if (seat === 0 || seat > 36) {
 		return 'Таких мест в вагоне не существует';
-	} else if (seat % 4 === 0) {
-		return seat / 4;
 	} else {
-		return Math.trunc((seat + 4) / 4);
+		return Math.ceil(seat / 4);
 	}
 }
 getCoupeNumber(7);
