@@ -19,9 +19,10 @@ const movieDB = {
 };
 
 const blurb = document.querySelector('.promo__adv-title');
-const images = document.querySelectorAll('img');
+const images = document.querySelectorAll('.promo__adv img');
 const genre = document.querySelector('.promo__genre');
 const background = document.querySelector('.promo__bg');
+const interactiveList = document.querySelector('.promo__interactive-list');
 const films = document.querySelectorAll('.promo__interactive-item');
 
 blurb.remove();
@@ -36,6 +37,16 @@ background.style.backgroundImage = 'url(../project_1/img/bg.jpg)';
 
 movieDB.movies.sort();
 
-films.forEach((item, index) => {
-	item.textContent = `${index + 1}. ${movieDB.movies[index]}`;
+films.forEach((item) => {
+	item.remove();
+});
+
+movieDB.movies.forEach((item, index) => {
+	let newFilm = document.createElement('li');
+	let trash = document.createElement('div');
+	interactiveList.append(newFilm);
+	newFilm.classList.add('promo__interactive-item');
+	newFilm.textContent = `${index + 1}. ${item}`;
+	newFilm.append(trash);
+	trash.classList.add('delete');
 });
