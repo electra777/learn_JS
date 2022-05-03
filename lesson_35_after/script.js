@@ -11,9 +11,9 @@ const personalPlanPeter = {
 		},
 		exp: '1 month',
 	},
-	showAgeAndLangs: function () {
-		const { age } = personalPlanPeter;
-		const { languages } = personalPlanPeter.skills;
+	showAgeAndLangs: function (obj) {
+		const { age } = obj;
+		const { languages } = obj.skills;
 		let langs = '';
 
 		langs = languages.join(' ').toUpperCase();
