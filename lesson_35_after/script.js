@@ -1,25 +1,41 @@
 'use strict';
 
-// Место для первой задачи
-function calculateVolumeAndArea(cubeEdge) {
-	if (typeof cubeEdge !== 'number' || cubeEdge <= 0 || cubeEdge % 1 !== 0) {
-		return 'При вычислении произошла ошибка';
-	} else {
-		return `Объем куба: ${cubeEdge * cubeEdge * cubeEdge}, площадь всей поверхности: ${
-			cubeEdge * cubeEdge * 6
-		}`;
-	}
-}
-calculateVolumeAndArea();
+const personalPlanPeter = {
+	name: 'Peter',
+	age: '29',
+	skills: {
+		languages: ['ru', 'eng'],
+		programmingLangs: {
+			js: '20%',
+			php: '10%',
+		},
+		exp: '1 month',
+	},
+	showAgeAndLangs: function () {
+		const { age } = personalPlanPeter;
+		const { languages } = personalPlanPeter.skills;
+		let langs = '';
 
-// Место для второй задачи
-function getCoupeNumber(seat) {
-	if (typeof seat !== 'number' || seat < 0 || seat % 1 !== 0) {
-		return 'Ошибка. Проверьте правильность введенного номера места';
-	} else if (seat === 0 || seat > 36) {
-		return 'Таких мест в вагоне не существует';
-	} else {
-		return Math.ceil(seat / 4);
-	}
+		langs = languages.join(' ').toUpperCase();
+		return console.log(`Мне ${age} и я владею языками: ${langs}`);
+	},
+};
+personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+
+function showExperience(plan) {
+	const { exp } = plan.skills;
+	return console.log(exp);
 }
-getCoupeNumber(7);
+
+showExperience(personalPlanPeter);
+
+function showProgrammingLangs(plan) {
+	const { programmingLangs } = plan.skills;
+	let result = '';
+
+	for (let key in programmingLangs) {
+		result += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
+	}
+	return console.log(result);
+}
+showProgrammingLangs(personalPlanPeter);
