@@ -87,7 +87,7 @@ function log(a, b, c) {
 
 const num = [2, 5, 7];
 
-log(...num);
+console.log(...num);
 
 const arrayTwo = ['a', 'b'];
 const arrayTwoNew = [...arrayTwo];
