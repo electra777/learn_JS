@@ -35,11 +35,11 @@ genre.textContent = 'драма';
 
 background.style.backgroundImage = 'url(../project_1/img/bg.jpg)';
 
-movieDB.movies.sort();
-
 films.forEach((item) => {
 	item.remove();
 });
+
+movieDB.movies.sort();
 
 movieDB.movies.forEach((item, index) => {
 	let newFilm = document.createElement('li');
