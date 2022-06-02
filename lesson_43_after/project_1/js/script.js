@@ -35,18 +35,24 @@ genre.textContent = 'драма';
 
 background.style.backgroundImage = 'url(../project_1/img/bg.jpg)';
 
-films.forEach((item) => {
-	item.remove();
-});
+interactiveList.innerHTML = '';
 
 movieDB.movies.sort();
 
-movieDB.movies.forEach((item, index) => {
-	let newFilm = document.createElement('li');
-	let trash = document.createElement('div');
-	interactiveList.append(newFilm);
-	newFilm.classList.add('promo__interactive-item');
-	newFilm.textContent = `${index + 1}. ${item}`;
-	newFilm.append(trash);
-	trash.classList.add('delete');
+// movieDB.movies.forEach((item, index) => {
+// 	let newFilm = document.createElement('li');
+// 	let trash = document.createElement('div');
+// 	interactiveList.append(newFilm);
+// 	newFilm.classList.add('promo__interactive-item');
+// 	newFilm.textContent = `${index + 1}. ${item}`;
+// 	newFilm.append(trash);
+// 	trash.classList.add('delete');
+// });
+
+movieDB.movies.forEach((item, i) => {
+	interactiveList.innerHTML += `
+    <li class="promo__interactive-item">${i + 1}. ${item}
+        <div class="delete"></div>
+    </li>
+    `;
 });
